@@ -30,7 +30,7 @@ namespace TgPollerBotTemplate.Handlers
             };
 
 
-        public static bool IsCommandExist(string command)
+        public static bool HandlerExist(string command)
         {
             return Handlers.ContainsKey(command);
         }
@@ -43,7 +43,7 @@ namespace TgPollerBotTemplate.Handlers
         static async void StartCommandHandler(Update e)
         {
             var message = e.Message;
-            if (message.Text.ToLower() == Commands.Start)
+            if (message!.Text!.ToLower() == Commands.Start)
             {
                 var welcomeMessage = "Hello World!";
                 await BotClient.SendTextMessageAsync(message.Chat, welcomeMessage, parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);

@@ -18,16 +18,16 @@ namespace TgPollerBotTemplate.Handlers
                 long chatId = 0;
                 if (update.Type == Telegram.Bot.Types.Enums.UpdateType.Message)
                 {
-                    command = update.Message.Text.Split(' ')[0];
+                    command = Commands.Parse(update.Message!.Text!);;
                     chatId = update.Message.Chat.Id;
                 }
                 if (update.Type == Telegram.Bot.Types.Enums.UpdateType.CallbackQuery)
                 {
-                    command = update.CallbackQuery.Data.Split(' ')[0];
+                    command = Commands.Parse(update.CallbackQuery!.Data!);
                     chatId = update.CallbackQuery.From.Id;
                 }
 
-                if (CommandHandler.IsCommandExist(command))
+                if (CommandHandler.HandlerExist(command))
                 {
                     try
                     {
