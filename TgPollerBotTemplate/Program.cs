@@ -35,6 +35,10 @@ namespace TgPollerBotTemplate
 
         public static string ReadToken(string filePath)
         {
+            if (!File.Exists(filePath))
+            {
+                Logger.Error($"The token missing. Add the file [token] to the [bin] directory.");
+            }
             return File.ReadAllText(filePath);
         }
     }

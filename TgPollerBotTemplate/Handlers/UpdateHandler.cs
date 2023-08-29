@@ -37,12 +37,12 @@ namespace TgPollerBotTemplate.Handlers
                     catch (Exception ex)
                     {
                         Logger.Error($"Error happened while handle operation. Error: [{ex.ToString}]");
-                        await botClient.SendTextMessageAsync(chatId, "Failed to implement command. We're already fixing it. Try again later. Thank you for your patience!");
+                        await botClient.SendTextMessageAsync(chatId, "Failed to implement command. We're already fixing it. Try again later. Thank you for your patience!", cancellationToken: cancellationToken);
                     }
                 }
                 else
                 {
-                    await botClient.SendTextMessageAsync(chatId, "Unknown command. Please use one of the available commands.");
+                    await botClient.SendTextMessageAsync(chatId, "Unknown command. Please use one of the available commands.", cancellationToken: cancellationToken);
                 }
             }
         }
