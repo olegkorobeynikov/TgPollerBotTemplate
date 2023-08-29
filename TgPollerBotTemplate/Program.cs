@@ -1,6 +1,6 @@
 ﻿using NLog;
-using Telegram.Bot.Polling;
 using Telegram.Bot;
+using Telegram.Bot.Polling;
 using TgPollerBotTemplate.Handlers;
 
 namespace TgPollerBotTemplate
