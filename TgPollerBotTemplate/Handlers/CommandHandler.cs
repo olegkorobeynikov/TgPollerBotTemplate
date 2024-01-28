@@ -46,6 +46,7 @@ namespace TgPollerBotTemplate.Handlers
             if (message!.Text!.ToLower() == Commands.Start)
             {
                 var welcomeMessage = "Hello World!";
+                var answer = Poller();
                 await BotClient.SendTextMessageAsync(message.Chat, welcomeMessage, parseMode: Telegram.Bot.Types.Enums.ParseMode.Markdown);
                 return;
             }
@@ -53,6 +54,27 @@ namespace TgPollerBotTemplate.Handlers
             {
                 return;
             }
+        }
+
+        static async Task Poller()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class Poller
+    {
+        public bool NewEvent { get; private set; }
+        public bool Error { get; private set; }
+
+        public void StartChecking()
+        {
+            Timer timer = new Timer(PollerMethod, null, 0, 15 * 60 * 1000);
+        }
+
+        private void PollerMethod(object state)
+        {
+            throw new NotImplementedException("Set new Event here");
         }
     }
 }
